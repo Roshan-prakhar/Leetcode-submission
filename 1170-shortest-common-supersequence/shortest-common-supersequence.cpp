@@ -49,7 +49,7 @@ public:
                  }
               }
          }
-
+       // remaining parts of strings 
          while(i>0)
          {
             ans+=str1[i-1];
