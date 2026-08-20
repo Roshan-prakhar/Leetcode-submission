@@ -24,8 +24,8 @@ const int mod=1e9;
             }
         }
 
-        long long ans = dp[m][n][0] + dp[m][n][1];
+        long long ans = (dp[m][n][0] + dp[m][n][1])%mod;
 
-        return ans;
+        return (int)ans;
     }
 };
