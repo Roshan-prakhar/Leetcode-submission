@@ -3,29 +3,31 @@ public:
     int minimumDeleteSum(string s1, string s2) {
         int m=s1.size();
         int n=s2.size();
-        vector<vector<int>>dp(m+1,vector<int>(n+1,0));
-         for(int i = 1; i <= m; ++i)
-            dp[i][0] = dp[i-1][0] + s1[i-1];
-
-        for(int j = 1; j <= n; ++j)
-            dp[0][j] = dp[0][j-1] + s2[j-1];
-
-        for(int i=1;i<=m;++i)
+        vector<vector<int>>dp(m+1,vector<int>(n+1,1e9));
+        //dp[i][j]  -> means minimum sum value till first i-1 chars and j-1 chars
+        dp[0][0]=0;
+        for(int i=0;i<m;++i)
         {
-            for(int j=1;j<=n;++j)
+            dp[i+1][0]=dp[i][0]+s1[i];
+        }
+        for(int j=0;j<n;++j)
+        {
+            dp[0][j+1]=dp[0][j]+s2[j];
+        }
+         for(int i=0;i<m;++i)
+         {
+            for(int j=0;j<n;++j)
             {
-                if(s1[i-1]==s2[j-1])
+                if(s1[i]==s2[j])
                 {
-                    dp[i][j]=dp[i-1][j-1];
+                    dp[i+1][j+1]=min(dp[i+1][j+1],dp[i][j]);
                 }
                 else
                 {
-                    dp[i][j]=min(s1[i-1]+dp[i-1][j],s2[j-1]+dp[i][j-1]);
+                    dp[i+1][j+1]=min({dp[i][j+1]+s1[i],dp[i+1][j]+s2[j],dp[i+1][j+1]});
                 }
             }
-        }
-
+         }
         return dp[m][n];
-        
     }
 };
