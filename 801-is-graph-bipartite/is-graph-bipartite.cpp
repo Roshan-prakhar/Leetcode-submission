@@ -19,7 +19,6 @@ bool dfs(int node,vector<vector<int>>&adj,vector<int>&color)
     bool isBipartite(vector<vector<int>>& graph) {
         int n=graph.size();
         vector<vector<int>>adj(n);
-        vector<int>vis(n,0);
          vector<int>color(n,-1);
          for(int i=0;i<n;++i)
          {
