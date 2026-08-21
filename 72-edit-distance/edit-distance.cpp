@@ -7,11 +7,11 @@ public:
         //dp[i][j][1] -> match -> no need to do anything
         /// dp[i][j][0] -> NO match -> we have three options
         dp[0][0]=0;
-        for(int i = 0; i <= m; i++)
-         dp[i][0] = i;
+        for(int i = 0; i < m; i++)
+         dp[i+1][0] = i+1;
 
-      for(int j = 0; j <= n; j++)
-        dp[0][j] = j;
+      for(int j = 0; j < n; j++)
+        dp[0][j+1] = j+1;
         //edge case : if one is finished , talk about other one
         for(int i=0;i<m;++i)
         {
