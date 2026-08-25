@@ -34,6 +34,10 @@ long long devices=n;
     return cnt>=n;
  }
     long long maxRunTime(int n, vector<int>& bat) {
+        // logic : jab remaining device ka avg runtime se estimate krna padey ki remaning device 
+        // operate ho payga ya ni 
+        // NOTE: we can take out the batteries from them
+        // if req is higher than capacity, may use them in rotation
         sort(bat.begin(),bat.end());
         long long ts=0;
         for(long long i : bat) ts+=i;
