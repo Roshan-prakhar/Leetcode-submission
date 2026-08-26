@@ -14,6 +14,7 @@ public:
         // TO mark a cell visitd I must which keys i have right now
         //Proper visited state is required 
         // visited [x][ny][keys] --> keys == Mask  -> "000000" 
+        // just count of keys while visiting is not enough
 
         vector<char>r;
         vector<vector<char>>mat;
