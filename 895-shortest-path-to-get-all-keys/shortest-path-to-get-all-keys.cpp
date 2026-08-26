@@ -81,7 +81,7 @@ public:
                 if(!isValid(nx,ny,m,n))
                     continue;
 
-                if(mat[nx][ny]=='#')
+                if(mat[nx][ny]=='#') //wall
                     continue;
 
                 string newMask=mask;
