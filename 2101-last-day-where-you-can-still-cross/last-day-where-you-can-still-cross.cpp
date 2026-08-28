@@ -24,12 +24,11 @@ public:
             if(grid[0][j]==0)
             {
                 q.push({0,j});
-                vis[0][j]=1;
             }
         }
 
-        int dr[4]={-1,0,1,0};
-        int dc[4]={0,1,0,-1};
+        int row[4]={-1,0,1,0};
+        int col[4]={0,1,0,-1};
 
         while(!q.empty())
         {
@@ -37,18 +36,20 @@ public:
             int j=q.front().second;
             q.pop();
 
+            if(vis[i][j]) continue;
+            vis[i][j]=1;
+
             if(i==rows-1) return true;
 
             for(int k=0;k<4;++k)
             {
-                int ni=i+dr[k];
-                int nj=j+dc[k];
+                int ni=i+row[k];
+                int nj=j+col[k];
 
                 if(isValid(ni,nj,rows,cols) &&
                    grid[ni][nj]==0 &&
                    vis[ni][nj]==0)
                 {
-                    vis[ni][nj]=1;
                     q.push({ni,nj});
                 }
             }
@@ -58,8 +59,6 @@ public:
     }
 
     int latestDayToCross(int row, int col, vector<vector<int>>& cells) {
-        // I dont need to do bfs afdter evyer day 
-        // I am doing B.S. so only O(Log(m*n)) days are tested
         int low=0;
         int high=cells.size();
         int ans=0;
