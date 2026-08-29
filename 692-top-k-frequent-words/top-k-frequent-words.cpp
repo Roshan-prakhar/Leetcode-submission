@@ -7,7 +7,7 @@ public:
         {
             hash[words[i]]++;
         }
-        map<int,vector<string>,greater<int>> freq; //freq of cnt
+        map<int,vector<string>,greater<int>>freq; //freq of cnt
         for(auto it:hash)
         {
             string str=it.first;
