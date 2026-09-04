@@ -20,13 +20,13 @@ public:
          }
          else{
             cnt--;
-            i++;
             if(cnt==0)
             {
                 cand=nums[i];
                 cnt=1;
-                i++;
+              
             }
+            i++;
          }
       }
 
