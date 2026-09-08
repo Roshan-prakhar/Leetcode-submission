@@ -6,6 +6,8 @@ public:
         for(int i=0;i<sze;++i)
         {
             ans.push_back(0);
+            //adding a zero will simply increase vector space by one 
+            // and i can start from the end and shift values to the right.
             for(int j=ans.size()-1;j>index[i];--j)
             {
                 ans[j]=ans[j-1];
